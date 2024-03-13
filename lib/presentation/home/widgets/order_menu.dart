@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_koperasi_app/core/constants/variables.dart';
 import 'package:flutter_koperasi_app/core/extensions/int_ext.dart';
 import 'package:flutter_koperasi_app/core/extensions/string_ext.dart';
+import 'package:flutter_koperasi_app/presentation/home/bloc/checkout/checkout_bloc.dart';
 import 'package:flutter_koperasi_app/presentation/home/models/product_quantity.dart';
 
 import '../../../core/components/spaces.dart';
@@ -74,6 +75,10 @@ class OrderMenu extends StatelessWidget {
                     //   // data.quantity--;
                     //   // setState(() {});
                     // }
+
+                    context
+                        .read<CheckoutBloc>()
+                        .add(CheckoutEvent.removeItem(data.product));
                   },
                   child: Container(
                     width: 30,
@@ -100,6 +105,9 @@ class OrderMenu extends StatelessWidget {
                     //     onDeleteTap();
                     // data.quantity++;
                     // setState(() {});
+                    context
+                        .read<CheckoutBloc>()
+                        .add(CheckoutEvent.addItem(data.product));
                   },
                   child: Container(
                     width: 30,
