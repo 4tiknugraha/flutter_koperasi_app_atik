@@ -1,12 +1,8 @@
 # Koperasi APP POS 
 
-A new Flutter project.
-## Android POS
 
 ![Screenshot_1710295794](https://github.com/4tiknugraha/flutter_koperasi_app_atik/assets/38272198/47f2607a-0165-4106-8e73-f5ddf4d269ae)
 
-
-## Getting Started
 
 This project is a starting point for a Flutter application.
 
