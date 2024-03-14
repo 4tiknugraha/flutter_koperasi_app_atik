@@ -86,7 +86,11 @@ class Product {
             : Category.fromMap(json["category"]),
       );
 
-  // formlocalmap
+  factory Product.fromOrderMap(Map<String, dynamic> json) => Product(
+        id: json["id_product"],
+        price: json["price"].toString(),
+      );
+
   factory Product.fromLocalMap(Map<String, dynamic> json) => Product(
         id: json["productId"],
         categoryId: json["categoryId"],
@@ -138,6 +142,7 @@ class Product {
         "updated_at": updatedAt?.toIso8601String(),
         "category": category?.toMap(),
       };
+
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) return true;
