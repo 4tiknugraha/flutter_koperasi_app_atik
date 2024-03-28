@@ -1,3 +1,5 @@
+// ignore_for_file: deprecated_member_use
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_koperasi_app/data/datasources/auth_local_datasource.dart';
@@ -48,7 +50,7 @@ class _LoginPageState extends State<LoginPage> {
           const SpaceHeight(24.0),
           const Center(
             child: Text(
-              'KOPERASI KOMANJA',
+              'RESTO WITH BAHRI',
               style: TextStyle(
                 fontSize: 16,
                 fontWeight: FontWeight.w700,

@@ -4,6 +4,7 @@ import 'package:flutter_koperasi_app/core/constants/colors.dart';
 import 'package:flutter_koperasi_app/core/extensions/build_context_ext.dart';
 import 'package:flutter_koperasi_app/data/datasources/auth_local_datasource.dart';
 import 'package:flutter_koperasi_app/presentation/auth/login_page.dart';
+import 'package:flutter_koperasi_app/presentation/setting/pages/settings_page.dart';
 import 'package:flutter_koperasi_app/presentation/setting/pages/sync_data_page.dart';
 
 import '../../../core/assets/assets.gen.dart';
@@ -27,7 +28,7 @@ class _DashboardPageState extends State<DashboardPage> {
     const Center(child: Text('This is page 2')),
     const Center(child: Text('This is page 3')),
     // const Center(child: Text('This is page 4')),
-    const SyncDataPage(),
+    const SettingsPage(),
     // const ManagePrinterPage(),
     // const SettingsPage(),
   ];

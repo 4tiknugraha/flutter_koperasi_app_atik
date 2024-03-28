@@ -1,3 +1,4 @@
+// ignore: depend_on_referenced_packages
 import 'package:bloc/bloc.dart';
 import 'package:flutter_koperasi_app/core/extensions/string_ext.dart';
 import 'package:flutter_koperasi_app/data/datasources/auth_local_datasource.dart';

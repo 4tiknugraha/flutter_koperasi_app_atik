@@ -6,8 +6,6 @@ import '../../../data/datasources/auth_local_datasource.dart';
 import '../../auth/bloc/logout/logout_bloc.dart';
 import '../../auth/login_page.dart';
 
-
-
 class LogoutPage extends StatefulWidget {
   const LogoutPage({super.key});
 
@@ -26,7 +24,6 @@ class _LogoutPageState extends State<LogoutPage> {
         child: Column(
           children: [
             const Text('Welcome to Dashboard'),
-            
             const SizedBox(
               height: 100,
             ),

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_koperasi_app/data/datasources/auth_local_datasource.dart';
 import 'package:flutter_koperasi_app/data/datasources/auth_remote_datasource.dart';
+import 'package:flutter_koperasi_app/data/datasources/discount_remote_datasource.dart';
 import 'package:flutter_koperasi_app/data/datasources/order_remote_datasource.dart';
 import 'package:flutter_koperasi_app/data/datasources/product_local_datasource.dart';
 import 'package:flutter_koperasi_app/data/datasources/product_remote_datasource.dart';
@@ -9,6 +10,7 @@ import 'package:flutter_koperasi_app/presentation/auth/login_page.dart';
 import 'package:flutter_koperasi_app/presentation/home/bloc/checkout/checkout_bloc.dart';
 import 'package:flutter_koperasi_app/presentation/home/bloc/local_product/local_product_bloc.dart';
 import 'package:flutter_koperasi_app/presentation/home/bloc/order/order_bloc.dart';
+import 'package:flutter_koperasi_app/presentation/setting/bloc/discount/discount_bloc.dart';
 import 'package:flutter_koperasi_app/presentation/setting/bloc/sync_order/sync_order_bloc.dart';
 import 'package:flutter_koperasi_app/presentation/setting/bloc/sync_product/sync_product_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -18,6 +20,7 @@ import 'presentation/auth/bloc/login/login_bloc.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'presentation/home/pages/dashboard_page.dart';
+import 'presentation/setting/bloc/add_discount/add_discount_bloc.dart';
 
 void main() {
   runApp(const MyApp());
@@ -52,6 +55,12 @@ class MyApp extends StatelessWidget {
         ),
         BlocProvider(
           create: (context) => SyncOrderBloc(OrderRemoteDatasource()),
+        ),
+        BlocProvider(
+          create: (context) => DiscountBloc(DiscountRemoteDatasource()),
+        ),
+        BlocProvider(
+          create: (context) => AddDiscountBloc(DiscountRemoteDatasource()),
         ),
       ],
       child: MaterialApp(
