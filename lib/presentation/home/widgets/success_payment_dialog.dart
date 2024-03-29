@@ -1,12 +1,15 @@
-// ignore_for_file: unused_import
+// ignore_for_file: unused_import, unused_local_variable
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:intl/intl.dart';
+import 'package:print_bluetooth_thermal/print_bluetooth_thermal.dart';
+
 import 'package:flutter_koperasi_app/core/extensions/build_context_ext.dart';
 import 'package:flutter_koperasi_app/core/extensions/int_ext.dart';
 import 'package:flutter_koperasi_app/core/extensions/string_ext.dart';
-import 'package:intl/intl.dart';
-import 'package:print_bluetooth_thermal/print_bluetooth_thermal.dart';
+import 'package:flutter_koperasi_app/data/dataoutputs/print_dataoutputs.dart';
+import 'package:flutter_koperasi_app/presentation/home/models/product_quantity.dart';
 
 import '../../../core/assets/assets.gen.dart';
 import '../../../core/components/buttons.dart';
@@ -16,16 +19,32 @@ import '../bloc/order/order_bloc.dart';
 import '../models/order_item.dart';
 
 class SuccessPaymentDialog extends StatefulWidget {
-  const SuccessPaymentDialog({super.key});
+  const SuccessPaymentDialog({
+    Key? key,
+    required this.data,
+    required this.totalQty,
+    required this.totalPrice,
+    required this.totalTax,
+    required this.totalDiscount,
+    required this.subTotal,
+    required this.normalPrice,
+  }) : super(key: key);
+  final List<ProductQuantity> data;
+  final int totalQty;
+  final int totalPrice;
+  final int totalTax;
+  final int totalDiscount;
+  final int subTotal;
+  final int normalPrice;
 
   @override
   State<SuccessPaymentDialog> createState() => _SuccessPaymentDialogState();
 }
 
 class _SuccessPaymentDialogState extends State<SuccessPaymentDialog> {
-  List<OrderItem> data = [];
-  int totalQty = 0;
-  int totalPrice = 0;
+  // List<ProductQuantity> data = [];
+  // int totalQty = 0;
+  // int totalPrice = 0;
   @override
   Widget build(BuildContext context) {
     return AlertDialog(
@@ -74,7 +93,7 @@ class _SuccessPaymentDialogState extends State<SuccessPaymentDialog> {
                   loaded: (model) => model.total,
                 );
                 return Text(
-                  total.ceil().currencyFormatRp,
+                  widget.totalPrice.currencyFormatRp,
                   style: const TextStyle(
                     fontWeight: FontWeight.w700,
                   ),
@@ -114,7 +133,7 @@ class _SuccessPaymentDialogState extends State<SuccessPaymentDialog> {
                   orElse: () => 0,
                   loaded: (model) => model.total,
                 );
-                final diff = paymentAmount - total;
+                final diff = paymentAmount - widget.totalPrice;
                 return Text(
                   diff.ceil().currencyFormatRp,
                   style: const TextStyle(
@@ -152,16 +171,20 @@ class _SuccessPaymentDialogState extends State<SuccessPaymentDialog> {
                 Flexible(
                   child: Button.filled(
                     onPressed: () async {
-                      // final printValue =
-                      //           await CwbPrint.instance.printOrder(
-                      //         data,
-                      //         totalQty,
-                      //         totalPrice,
-                      //         'Tunai',
-                      //         totalPrice,
-                      //         'Bahri',
-                      //       );
-                      //       await PrintBluetoothThermal.writeBytes(printValue);
+                      final printValue =
+                          await PrintDataoutputs.instance.printOrder(
+                        widget.data,
+                        widget.totalQty,
+                        widget.totalPrice,
+                        'Tunai',
+                        widget.totalPrice,
+                        'Koperasi',
+                        widget.totalDiscount,
+                        widget.totalTax,
+                        widget.subTotal,
+                        widget.normalPrice,
+                      );
+                      await PrintBluetoothThermal.writeBytes(printValue);
                     },
                     label: 'Print',
                   ),

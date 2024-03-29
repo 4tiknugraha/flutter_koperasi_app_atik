@@ -79,7 +79,7 @@ class ManageTaxCard extends StatelessWidget {
                 padding: const EdgeInsets.all(8.0),
                 decoration: const BoxDecoration(
                   borderRadius: BorderRadius.all(Radius.circular(50.0)),
-                  color: AppColors.primary,
+                  color: AppColors.orangeLight,
                 ),
                 child: Assets.icons.edit.svg(),
               ),

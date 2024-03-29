@@ -32,7 +32,7 @@ class SearchInput extends StatelessWidget {
           hintText: hintText,
           prefixIcon: const Icon(
             Icons.search,
-            color: AppColors.primary,
+            color: AppColors.orangeLight,
           ),
           contentPadding: const EdgeInsets.all(16.0),
           border: OutlineInputBorder(

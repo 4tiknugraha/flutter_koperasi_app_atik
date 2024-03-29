@@ -44,7 +44,7 @@ class _LogoutPageState extends State<LogoutPage> {
                     ScaffoldMessenger.of(context).showSnackBar(
                       const SnackBar(
                         content: Text('Logout success'),
-                        backgroundColor: AppColors.primary,
+                        backgroundColor: AppColors.orangeLight,
                       ),
                     );
                     Navigator.pushReplacement(context,

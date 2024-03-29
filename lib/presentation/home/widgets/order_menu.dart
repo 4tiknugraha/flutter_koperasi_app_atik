@@ -86,7 +86,7 @@ class OrderMenu extends StatelessWidget {
                     color: AppColors.white,
                     child: const Icon(
                       Icons.remove_circle,
-                      color: AppColors.primary,
+                      color: AppColors.orangeLight,
                     ),
                   ),
                 ),
@@ -115,7 +115,7 @@ class OrderMenu extends StatelessWidget {
                     color: AppColors.white,
                     child: const Icon(
                       Icons.add_circle,
-                      color: AppColors.primary,
+                      color: AppColors.orangeLight,
                     ),
                   ),
                 ),
@@ -129,7 +129,7 @@ class OrderMenu extends StatelessWidget {
                     .currencyFormatRp,
                 textAlign: TextAlign.right,
                 style: const TextStyle(
-                  color: AppColors.primary,
+                  color: AppColors.orangeLight,
                   fontWeight: FontWeight.w500,
                 ),
               ),
@@ -158,7 +158,7 @@ class OrderMenu extends StatelessWidget {
         //         height: 60.0,
         //         width: 60.0,
         //         decoration: const BoxDecoration(
-        //           color: AppColors.primary,
+        //           color: AppColors.orangeLight,
         //           borderRadius: BorderRadius.all(Radius.circular(8.0)),
         //         ),
         //         child: Assets.icons.delete.svg(

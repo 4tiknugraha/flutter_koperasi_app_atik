@@ -4,6 +4,7 @@ import 'package:flutter_koperasi_app/core/constants/colors.dart';
 import 'package:flutter_koperasi_app/core/extensions/build_context_ext.dart';
 import 'package:flutter_koperasi_app/data/datasources/auth_local_datasource.dart';
 import 'package:flutter_koperasi_app/presentation/auth/login_page.dart';
+import 'package:flutter_koperasi_app/presentation/report/pages/report_page.dart';
 import 'package:flutter_koperasi_app/presentation/setting/pages/settings_page.dart';
 import 'package:flutter_koperasi_app/presentation/setting/pages/sync_data_page.dart';
 
@@ -25,7 +26,8 @@ class _DashboardPageState extends State<DashboardPage> {
   final List<Widget> _pages = [
     const HomePage(),
     // const Center(child: Text('This is page 1')),
-    const Center(child: Text('This is page 2')),
+    // const Center(child: Text('This is page 2')),
+    const ReportPage(),
     const Center(child: Text('This is page 3')),
     // const Center(child: Text('This is page 4')),
     const SettingsPage(),
@@ -56,7 +58,7 @@ class _DashboardPageState extends State<DashboardPage> {
                 child: SizedBox(
                   height: context.deviceHeight - 20.0,
                   child: ColoredBox(
-                    color: AppColors.primary,
+                    color: AppColors.orangeLight,
                     child: Column(
                       children: [
                         NavItem(
@@ -96,7 +98,7 @@ class _DashboardPageState extends State<DashboardPage> {
                                 ScaffoldMessenger.of(context).showSnackBar(
                                   const SnackBar(
                                     content: Text('Logout success'),
-                                    backgroundColor: AppColors.primary,
+                                    backgroundColor: AppColors.orangeLight,
                                   ),
                                 );
                                 Navigator.pushReplacement(context,

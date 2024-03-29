@@ -28,7 +28,7 @@ class ColumnButton extends StatelessWidget {
             width: 40.0,
             decoration: BoxDecoration(
               color: AppColors.white,
-              border: Border.all(color: AppColors.primary),
+              border: Border.all(color: AppColors.orangeLight),
               borderRadius: const BorderRadius.all(Radius.circular(8.0)),
             ),
             child: svgGenImage.svg(),
@@ -37,7 +37,7 @@ class ColumnButton extends StatelessWidget {
           Text(
             label,
             style: const TextStyle(
-              color: AppColors.primary,
+              color: AppColors.orangeLight,
               fontSize: 12,
               fontWeight: FontWeight.w500,
             ),

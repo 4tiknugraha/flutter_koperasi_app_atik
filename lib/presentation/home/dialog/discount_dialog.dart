@@ -31,7 +31,7 @@ class _DiscountDialogState extends State<DiscountDialog> {
           const Text(
             'DISKON',
             style: TextStyle(
-              color: AppColors.primary,
+              color: AppColors.orangeLight,
               fontSize: 28,
               fontWeight: FontWeight.w600,
             ),
@@ -44,7 +44,7 @@ class _DiscountDialogState extends State<DiscountDialog> {
               },
               icon: const Icon(
                 Icons.cancel,
-                color: AppColors.primary,
+                color: AppColors.orangeLight,
                 size: 30.0,
               ),
             ),
@@ -68,7 +68,7 @@ class _DiscountDialogState extends State<DiscountDialog> {
                         title: Text('Nama Diskon: ${discount.name}'),
                         subtitle: Text('Potongan harga (${discount.value}%)'),
                         contentPadding: EdgeInsets.zero,
-                        textColor: AppColors.primary,
+                        textColor: AppColors.orangeLight,
                         trailing: Checkbox(
                           value: discount.id == discountIdSelected,
                           onChanged: (value) {

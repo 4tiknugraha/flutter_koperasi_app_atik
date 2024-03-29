@@ -23,7 +23,7 @@ class SettingsTitle extends StatelessWidget {
         Text(
           title,
           style: const TextStyle(
-            color: AppColors.primary,
+            color: AppColors.orangeLight,
             fontSize: 20,
             fontWeight: FontWeight.w600,
           ),

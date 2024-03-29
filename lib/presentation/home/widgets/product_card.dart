@@ -118,7 +118,7 @@ class ProductCard extends StatelessWidget {
                     //       decoration: const BoxDecoration(
                     //         borderRadius:
                     //             BorderRadius.all(Radius.circular(9.0)),
-                    //         color: AppColors.primary,
+                    //         color: AppColors.orangeLight,
                     //       ),
                     //       child: Assets.icons.shoppingBasket.svg(),
                     //     ),
@@ -139,7 +139,7 @@ class ProductCard extends StatelessWidget {
                                   decoration: const BoxDecoration(
                                     borderRadius:
                                         BorderRadius.all(Radius.circular(9.0)),
-                                    color: AppColors.primary,
+                                    color: AppColors.orangeLight,
                                   ),
                                   child: Center(
                                     child: Text(
@@ -165,7 +165,7 @@ class ProductCard extends StatelessWidget {
                                   decoration: const BoxDecoration(
                                     borderRadius:
                                         BorderRadius.all(Radius.circular(9.0)),
-                                    color: AppColors.primary,
+                                    color: AppColors.orangeLight,
                                   ),
                                   child: Assets.icons.shoppingBasket.svg(),
                                 ),
@@ -179,7 +179,7 @@ class ProductCard extends StatelessWidget {
                               decoration: const BoxDecoration(
                                 borderRadius:
                                     BorderRadius.all(Radius.circular(9.0)),
-                                color: AppColors.primary,
+                                color: AppColors.orangeLight,
                               ),
                               child: Assets.icons.shoppingBasket.svg(),
                             ),

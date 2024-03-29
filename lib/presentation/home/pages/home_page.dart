@@ -498,7 +498,7 @@ class _HomePageState extends State<HomePage> {
                           const Text(
                             'Orders #1',
                             style: TextStyle(
-                              color: AppColors.primary,
+                              color: AppColors.orangeLight,
                               fontSize: 20,
                               fontWeight: FontWeight.w600,
                             ),
@@ -528,7 +528,7 @@ class _HomePageState extends State<HomePage> {
                               Text(
                                 'Item',
                                 style: TextStyle(
-                                  color: AppColors.primary,
+                                  color: AppColors.orangeLight,
                                   fontSize: 16,
                                   fontWeight: FontWeight.w600,
                                 ),
@@ -541,7 +541,7 @@ class _HomePageState extends State<HomePage> {
                                 child: Text(
                                   'Qty',
                                   style: TextStyle(
-                                    color: AppColors.primary,
+                                    color: AppColors.orangeLight,
                                     fontSize: 16,
                                     fontWeight: FontWeight.w600,
                                   ),
@@ -551,7 +551,7 @@ class _HomePageState extends State<HomePage> {
                                 child: Text(
                                   'Price',
                                   style: TextStyle(
-                                    color: AppColors.primary,
+                                    color: AppColors.orangeLight,
                                     fontSize: 16,
                                     fontWeight: FontWeight.w600,
                                   ),
@@ -644,7 +644,7 @@ class _HomePageState extends State<HomePage> {
                                   return Text(
                                     '$tax %',
                                     style: const TextStyle(
-                                      color: AppColors.primary,
+                                      color: AppColors.orangeLight,
                                       fontWeight: FontWeight.w600,
                                     ),
                                   );
@@ -676,7 +676,7 @@ class _HomePageState extends State<HomePage> {
                                   return Text(
                                     '$discount %',
                                     style: const TextStyle(
-                                      color: AppColors.primary,
+                                      color: AppColors.orangeLight,
                                       fontWeight: FontWeight.w600,
                                     ),
                                   );
@@ -713,7 +713,7 @@ class _HomePageState extends State<HomePage> {
                                   return Text(
                                     price.currencyFormatRp,
                                     style: const TextStyle(
-                                      color: AppColors.primary,
+                                      color: AppColors.orangeLight,
                                       fontWeight: FontWeight.w600,
                                     ),
                                   );

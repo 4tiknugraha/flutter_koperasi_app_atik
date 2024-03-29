@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_koperasi_app/presentation/setting/pages/discount_page.dart';
+import 'package:flutter_koperasi_app/presentation/setting/pages/manage_printer_page.dart';
 import 'package:flutter_koperasi_app/presentation/setting/pages/sync_data_page.dart';
 import 'package:flutter_koperasi_app/presentation/setting/pages/tax_page.dart';
 
@@ -43,7 +44,7 @@ class _SettingsPageState extends State<SettingsPage> {
                   const Text(
                     'Settings',
                     style: TextStyle(
-                      color: AppColors.primary,
+                      color: AppColors.orangeLight,
                       fontSize: 28,
                       fontWeight: FontWeight.w600,
                     ),
@@ -54,7 +55,7 @@ class _SettingsPageState extends State<SettingsPage> {
                     leading: Assets.icons.kelolaDiskon.svg(),
                     title: const Text('Kelola Diskon'),
                     subtitle: const Text('Kelola Diskon Pelanggan'),
-                    textColor: AppColors.primary,
+                    textColor: AppColors.orangeLight,
                     tileColor: currentIndex == 0
                         ? AppColors.blueLight
                         : Colors.transparent,
@@ -65,7 +66,7 @@ class _SettingsPageState extends State<SettingsPage> {
                     leading: Assets.icons.kelolaPrinter.svg(),
                     title: const Text('Kelola Printer'),
                     subtitle: const Text('Tambah atau hapus printer'),
-                    textColor: AppColors.primary,
+                    textColor: AppColors.orangeLight,
                     tileColor: currentIndex == 1
                         ? AppColors.blueLight
                         : Colors.transparent,
@@ -76,11 +77,23 @@ class _SettingsPageState extends State<SettingsPage> {
                     leading: Assets.icons.kelolaPajak.svg(),
                     title: const Text('Perhitungan Biaya'),
                     subtitle: const Text('Kelola biaya diluar biaya modal'),
-                    textColor: AppColors.primary,
+                    textColor: AppColors.orangeLight,
                     tileColor: currentIndex == 2
                         ? AppColors.blueLight
                         : Colors.transparent,
                     onTap: () => indexValue(2),
+                  ),
+                  ListTile(
+                    contentPadding: const EdgeInsets.all(12.0),
+                    leading: Assets.icons.kelolaPajak.svg(),
+                    title: const Text('Sync Data'),
+                    subtitle:
+                        const Text('Sinkronisasi data dari dan ke server'),
+                    textColor: AppColors.orangeLight,
+                    tileColor: currentIndex == 3
+                        ? AppColors.blueLight
+                        : Colors.transparent,
+                    onTap: () => indexValue(3),
                   ),
                 ],
               ),
@@ -98,8 +111,9 @@ class _SettingsPageState extends State<SettingsPage> {
                   index: currentIndex,
                   children: const [
                     DiscountPage(),
-                    SyncDataPage(),
+                    ManagePrinterPage(),
                     TaxPage(),
+                    SyncDataPage(),
                     // Text('tax'),
                     // ManageDiscount(),
                     // ManagePrinterPage(),

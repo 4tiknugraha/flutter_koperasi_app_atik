@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_koperasi_app/core/constants/colors.dart';
+import 'package:flutter_koperasi_app/data/models/response/discount_response_model.dart';
+import 'package:flutter_koperasi_app/presentation/home/widgets/custom_tab_bar.dart';
 import 'package:flutter_koperasi_app/presentation/setting/bloc/discount/discount_bloc.dart';
-
-import '../../home/models/product_category.dart';
-import '../../home/widgets/custom_tab_bar.dart';
-import '../dialogs/form_discount_dialog.dart';
-import '../models/discount_model.dart';
-import '../widgets/add_data.dart';
-import '../widgets/manage_discount_card.dart';
-import '../widgets/settings_title.dart';
+import 'package:flutter_koperasi_app/presentation/setting/dialogs/form_discount_dialog.dart';
+import 'package:flutter_koperasi_app/presentation/setting/models/discount_model.dart';
+import 'package:flutter_koperasi_app/presentation/setting/widgets/add_data.dart';
+import 'package:flutter_koperasi_app/presentation/setting/widgets/manage_discount_card.dart';
+import 'package:flutter_koperasi_app/presentation/setting/widgets/settings_title.dart';
 
 class DiscountPage extends StatefulWidget {
   const DiscountPage({super.key});
@@ -28,7 +28,7 @@ class _DiscountPageState extends State<DiscountPage> {
   //   ),
   // ];
 
-  void onEditTap(DiscountModel item) {
+  void onEditTap(Discount item) {
     showDialog(
       context: context,
       builder: (context) => FormDiscountDialog(data: item),
@@ -45,6 +45,7 @@ class _DiscountPageState extends State<DiscountPage> {
   @override
   void initState() {
     context.read<DiscountBloc>().add(const DiscountEvent.getDiscounts());
+
     super.initState();
   }
 
@@ -54,8 +55,9 @@ class _DiscountPageState extends State<DiscountPage> {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
+          const SizedBox(height: 16.0),
           const SettingsTitle('Kelola Diskon'),
-          const SizedBox(height: 24),
+          // const SizedBox(height: 24),
           CustomTabBar(
             tabTitles: const ['Semua'],
             initialTabIndex: 0,
@@ -64,37 +66,44 @@ class _DiscountPageState extends State<DiscountPage> {
               SizedBox(
                 child: BlocBuilder<DiscountBloc, DiscountState>(
                   builder: (context, state) {
-                    return state.maybeWhen(orElse: () {
-                      return const Center(
-                        child: CircularProgressIndicator(),
-                      );
-                    }, loaded: (discounts) {
-                      return GridView.builder(
-                        shrinkWrap: true,
-                        itemCount: discounts.length + 1,
-                        physics: const NeverScrollableScrollPhysics(),
-                        gridDelegate:
-                            const SliverGridDelegateWithFixedCrossAxisCount(
-                          childAspectRatio: 0.85,
-                          crossAxisCount: 3,
-                          crossAxisSpacing: 30.0,
-                          mainAxisSpacing: 30.0,
-                        ),
-                        itemBuilder: (context, index) {
-                          if (index == 0) {
-                            return AddData(
-                              title: 'Tambah Diskon Baru',
-                              onPressed: onAddDataTap,
+                    return state.maybeWhen(
+                      orElse: () {
+                        return const Center(
+                          child: CircularProgressIndicator(
+                            color: AppColors.orangeLight,
+                          ),
+                        );
+                      },
+                      loaded: (discounts) {
+                        return GridView.builder(
+                          shrinkWrap: true,
+                          itemCount: discounts.length + 1,
+                          physics: const NeverScrollableScrollPhysics(),
+                          gridDelegate:
+                              const SliverGridDelegateWithFixedCrossAxisCount(
+                            childAspectRatio: 0.85,
+                            crossAxisCount: 3,
+                            crossAxisSpacing: 30.0,
+                            mainAxisSpacing: 30.0,
+                          ),
+                          itemBuilder: (context, index) {
+                            if (index == 0) {
+                              return AddData(
+                                title: 'Tambah Diskon Baru',
+                                onPressed: onAddDataTap,
+                              );
+                            }
+                            final item = discounts[index - 1];
+                            return ManageDiscountCard(
+                              data: item,
+                              onEditTap: () {
+                                onEditTap(item);
+                              },
                             );
-                          }
-                          final item = discounts[index - 1];
-                          return ManageDiscountCard(
-                            data: item,
-                            onEditTap: () {},
-                          );
-                        },
-                      );
-                    });
+                          },
+                        );
+                      },
+                    );
                     // return GridView.builder(
                     //   shrinkWrap: true,
                     //   itemCount: discounts.length + 1,

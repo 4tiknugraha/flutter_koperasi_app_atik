@@ -18,7 +18,7 @@ class TabCustom extends StatelessWidget {
     return Container(
       margin: padding,
       decoration: BoxDecoration(
-        border: Border.all(color: AppColors.primary, width: 1.5),
+        border: Border.all(color: AppColors.orangeLight, width: 1.5),
         borderRadius: const BorderRadius.all(Radius.circular(9.0)),
       ),
       child: Row(
@@ -50,13 +50,13 @@ class TabMenu extends StatelessWidget {
           padding: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 15.0),
           decoration: BoxDecoration(
             borderRadius: const BorderRadius.all(Radius.circular(6.0)),
-            color: isActive ? AppColors.primary : AppColors.white,
+            color: isActive ? AppColors.orangeLight : AppColors.white,
           ),
           child: Center(
             child: Text(
               label,
               style: TextStyle(
-                color: isActive ? AppColors.white : AppColors.primary,
+                color: isActive ? AppColors.white : AppColors.orangeLight,
                 fontSize: 16,
                 fontWeight: FontWeight.w700,
               ),

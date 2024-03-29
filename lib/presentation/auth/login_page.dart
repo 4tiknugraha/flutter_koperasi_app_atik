@@ -45,12 +45,12 @@ class _LoginPageState extends State<LoginPage> {
                 Assets.icons.homeResto.path,
                 width: 100,
                 height: 100,
-                color: AppColors.primary,
+                color: AppColors.orangeLight,
               )),
           const SpaceHeight(24.0),
           const Center(
             child: Text(
-              'RESTO WITH BAHRI',
+              'KOPERASI',
               style: TextStyle(
                 fontSize: 16,
                 fontWeight: FontWeight.w700,

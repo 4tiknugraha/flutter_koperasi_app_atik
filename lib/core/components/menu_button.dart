@@ -33,7 +33,7 @@ class MenuButton extends StatelessWidget {
           width: context.deviceWidth,
           padding: const EdgeInsets.all(15.0),
           decoration: BoxDecoration(
-            color: isActive ? AppColors.primary : AppColors.white,
+            color: isActive ? AppColors.orangeLight : AppColors.white,
             borderRadius: const BorderRadius.all(Radius.circular(6.0)),
             boxShadow: [
               BoxShadow(
@@ -53,7 +53,7 @@ class MenuButton extends StatelessWidget {
                   : SvgPicture.asset(
                       iconPath,
                       colorFilter: ColorFilter.mode(
-                        isActive ? AppColors.white : AppColors.primary,
+                        isActive ? AppColors.white : AppColors.orangeLight,
                         BlendMode.srcIn,
                       ),
                     ),
@@ -61,7 +61,7 @@ class MenuButton extends StatelessWidget {
               Text(
                 label,
                 style: TextStyle(
-                  color: isActive ? AppColors.white : AppColors.primary,
+                  color: isActive ? AppColors.white : AppColors.orangeLight,
                   fontSize: 12,
                   fontWeight: FontWeight.w700,
                 ),

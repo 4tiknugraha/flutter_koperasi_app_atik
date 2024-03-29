@@ -15,7 +15,7 @@ class TaxDialog extends StatelessWidget {
           const Text(
             'PAJAK',
             style: TextStyle(
-              color: AppColors.primary,
+              color: AppColors.orangeLight,
               fontSize: 28,
               fontWeight: FontWeight.w600,
             ),
@@ -26,7 +26,7 @@ class TaxDialog extends StatelessWidget {
               onPressed: () => context.pop(),
               icon: const Icon(
                 Icons.cancel,
-                color: AppColors.primary,
+                color: AppColors.orangeLight,
                 size: 30.0,
               ),
             ),
@@ -41,7 +41,7 @@ class TaxDialog extends StatelessWidget {
             title: const Text('Pajak Pertambahan Nilai'),
             subtitle: const Text('tarif pajak (11%)'),
             contentPadding: EdgeInsets.zero,
-            textColor: AppColors.primary,
+            textColor: AppColors.orangeLight,
             trailing: Checkbox(
               value: true,
               onChanged: (value) {},

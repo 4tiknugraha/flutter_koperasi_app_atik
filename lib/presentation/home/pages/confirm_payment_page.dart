@@ -1,5 +1,3 @@
-// ignore_for_file: unused_import, prefer_const_constructors
-
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_koperasi_app/core/extensions/build_context_ext.dart';
@@ -69,7 +67,7 @@ class _ConfirmPaymentPageState extends State<ConfirmPaymentPage> {
                                 Text(
                                   'Konfirmasi',
                                   style: TextStyle(
-                                    color: AppColors.primary,
+                                    color: AppColors.orangeLight,
                                     fontSize: 20,
                                     fontWeight: FontWeight.w600,
                                   ),
@@ -90,7 +88,7 @@ class _ConfirmPaymentPageState extends State<ConfirmPaymentPage> {
                                 height: 60.0,
                                 width: 60.0,
                                 decoration: const BoxDecoration(
-                                  color: AppColors.primary,
+                                  color: AppColors.orangeLight,
                                   borderRadius:
                                       BorderRadius.all(Radius.circular(8.0)),
                                 ),
@@ -111,7 +109,7 @@ class _ConfirmPaymentPageState extends State<ConfirmPaymentPage> {
                             Text(
                               'Item',
                               style: TextStyle(
-                                color: AppColors.primary,
+                                color: AppColors.orangeLight,
                                 fontSize: 16,
                                 fontWeight: FontWeight.w600,
                               ),
@@ -124,7 +122,7 @@ class _ConfirmPaymentPageState extends State<ConfirmPaymentPage> {
                               child: Text(
                                 'Qty',
                                 style: TextStyle(
-                                  color: AppColors.primary,
+                                  color: AppColors.orangeLight,
                                   fontSize: 16,
                                   fontWeight: FontWeight.w600,
                                 ),
@@ -134,7 +132,7 @@ class _ConfirmPaymentPageState extends State<ConfirmPaymentPage> {
                               child: Text(
                                 'Price',
                                 style: TextStyle(
-                                  color: AppColors.primary,
+                                  color: AppColors.orangeLight,
                                   fontSize: 16,
                                   fontWeight: FontWeight.w600,
                                 ),
@@ -249,7 +247,7 @@ class _ConfirmPaymentPageState extends State<ConfirmPaymentPage> {
                                 return Text(
                                   '$tax % (${finalTax.toInt().currencyFormatRp})',
                                   style: const TextStyle(
-                                    color: AppColors.primary,
+                                    color: AppColors.orangeLight,
                                     fontWeight: FontWeight.w600,
                                   ),
                                 );
@@ -296,7 +294,7 @@ class _ConfirmPaymentPageState extends State<ConfirmPaymentPage> {
                                 return Text(
                                   finalDiscount.toInt().currencyFormatRp,
                                   style: TextStyle(
-                                    color: AppColors.primary,
+                                    color: AppColors.orangeLight,
                                     fontWeight: FontWeight.w600,
                                   ),
                                 );
@@ -329,7 +327,7 @@ class _ConfirmPaymentPageState extends State<ConfirmPaymentPage> {
                                 return Text(
                                   price.currencyFormatRp,
                                   style: const TextStyle(
-                                    color: AppColors.primary,
+                                    color: AppColors.orangeLight,
                                     fontWeight: FontWeight.w600,
                                   ),
                                 );
@@ -385,7 +383,7 @@ class _ConfirmPaymentPageState extends State<ConfirmPaymentPage> {
                                 return Text(
                                   total.ceil().currencyFormatRp,
                                   style: const TextStyle(
-                                    color: AppColors.primary,
+                                    color: AppColors.orangeLight,
                                     fontWeight: FontWeight.w600,
                                     fontSize: 16,
                                   ),
@@ -420,7 +418,7 @@ class _ConfirmPaymentPageState extends State<ConfirmPaymentPage> {
                             const Text(
                               'Pembayaran',
                               style: TextStyle(
-                                color: AppColors.primary,
+                                color: AppColors.orangeLight,
                                 fontSize: 20,
                                 fontWeight: FontWeight.w600,
                               ),
@@ -438,7 +436,7 @@ class _ConfirmPaymentPageState extends State<ConfirmPaymentPage> {
                             const Text(
                               'Metode Bayar',
                               style: TextStyle(
-                                color: AppColors.primary,
+                                color: AppColors.orangeLight,
                                 fontSize: 20,
                                 fontWeight: FontWeight.w600,
                               ),
@@ -468,7 +466,7 @@ class _ConfirmPaymentPageState extends State<ConfirmPaymentPage> {
                             const Text(
                               'Total Bayar',
                               style: TextStyle(
-                                color: AppColors.primary,
+                                color: AppColors.orangeLight,
                                 fontSize: 16,
                                 fontWeight: FontWeight.w500,
                               ),
@@ -568,6 +566,8 @@ class _ConfirmPaymentPageState extends State<ConfirmPaymentPage> {
 
                                     final subTotal =
                                         price - (discount / 100 * price);
+                                    final totalDiscount =
+                                        discount / 100 * price;
                                     final finalTax = subTotal * 0.11;
 
                                     List<ProductQuantity> items =
@@ -577,6 +577,14 @@ class _ConfirmPaymentPageState extends State<ConfirmPaymentPage> {
                                           (products, discount, tax, service) =>
                                               products,
                                     );
+                                    final totalQty = items.fold(
+                                      0,
+                                      (previousValue, element) =>
+                                          previousValue + element.quantity,
+                                    );
+
+                                    final totalPrice = subTotal + finalTax;
+
                                     return Flexible(
                                       child: Button.filled(
                                         onPressed: () async {
@@ -594,7 +602,16 @@ class _ConfirmPaymentPageState extends State<ConfirmPaymentPage> {
                                             context: context,
                                             barrierDismissible: false,
                                             builder: (context) =>
-                                                const SuccessPaymentDialog(),
+                                                SuccessPaymentDialog(
+                                              data: items,
+                                              totalQty: totalQty,
+                                              totalPrice: totalPrice.toInt(),
+                                              totalTax: finalTax.toInt(),
+                                              totalDiscount:
+                                                  totalDiscount.toInt(),
+                                              subTotal: subTotal.toInt(),
+                                              normalPrice: price,
+                                            ),
                                           );
                                         },
                                         label: 'Bayar',

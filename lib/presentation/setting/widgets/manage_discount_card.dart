@@ -1,3 +1,5 @@
+// ignore_for_file: unused_import
+
 import 'package:flutter/material.dart';
 import 'package:flutter_koperasi_app/data/models/response/discount_response_model.dart';
 
@@ -80,7 +82,7 @@ class ManageDiscountCard extends StatelessWidget {
                 padding: const EdgeInsets.all(8.0),
                 decoration: const BoxDecoration(
                   borderRadius: BorderRadius.all(Radius.circular(50.0)),
-                  color: AppColors.primary,
+                  color: AppColors.orangeLight,
                 ),
                 child: Assets.icons.edit.svg(),
               ),

@@ -10,6 +10,8 @@ import 'package:flutter_koperasi_app/presentation/auth/login_page.dart';
 import 'package:flutter_koperasi_app/presentation/home/bloc/checkout/checkout_bloc.dart';
 import 'package:flutter_koperasi_app/presentation/home/bloc/local_product/local_product_bloc.dart';
 import 'package:flutter_koperasi_app/presentation/home/bloc/order/order_bloc.dart';
+import 'package:flutter_koperasi_app/presentation/report/bloc/transaction_report/transaction_report_bloc.dart';
+import 'package:flutter_koperasi_app/presentation/setting/bloc/add_discount/add_discount_bloc.dart';
 import 'package:flutter_koperasi_app/presentation/setting/bloc/discount/discount_bloc.dart';
 import 'package:flutter_koperasi_app/presentation/setting/bloc/sync_order/sync_order_bloc.dart';
 import 'package:flutter_koperasi_app/presentation/setting/bloc/sync_product/sync_product_bloc.dart';
@@ -20,7 +22,6 @@ import 'presentation/auth/bloc/login/login_bloc.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'presentation/home/pages/dashboard_page.dart';
-import 'presentation/setting/bloc/add_discount/add_discount_bloc.dart';
 
 void main() {
   runApp(const MyApp());
@@ -62,11 +63,15 @@ class MyApp extends StatelessWidget {
         BlocProvider(
           create: (context) => AddDiscountBloc(DiscountRemoteDatasource()),
         ),
+        BlocProvider(
+          create: (context) =>
+              TransactionReportBloc(ProductLocalDatasource.instance),
+        ),
       ],
       child: MaterialApp(
         title: 'Flutter Demo',
         theme: ThemeData(
-          colorScheme: ColorScheme.fromSeed(seedColor: AppColors.primary),
+          colorScheme: ColorScheme.fromSeed(seedColor: AppColors.orangeLight),
           useMaterial3: true,
           textTheme: GoogleFonts.quicksandTextTheme(
             Theme.of(context).textTheme,
@@ -75,12 +80,12 @@ class MyApp extends StatelessWidget {
             color: AppColors.white,
             elevation: 0,
             titleTextStyle: GoogleFonts.quicksand(
-              color: AppColors.primary,
+              color: AppColors.orangeLight,
               fontSize: 16.0,
               fontWeight: FontWeight.w500,
             ),
             iconTheme: const IconThemeData(
-              color: AppColors.primary,
+              color: AppColors.orangeLight,
             ),
           ),
         ),

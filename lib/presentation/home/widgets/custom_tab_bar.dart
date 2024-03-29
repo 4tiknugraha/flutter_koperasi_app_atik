@@ -49,7 +49,7 @@ class _CustomTabBarState extends State<CustomTabBar> {
                       ? const Border(
                           bottom: BorderSide(
                             width: 3.0,
-                            color: AppColors.primary,
+                            color: AppColors.orangeLight,
                           ),
                         )
                       : null,
@@ -57,7 +57,7 @@ class _CustomTabBarState extends State<CustomTabBar> {
                 child: Text(
                   widget.tabTitles[index],
                   style: const TextStyle(
-                    color: AppColors.primary,
+                    color: AppColors.orangeLight,
                     fontWeight: FontWeight.bold,
                   ),
                 ),

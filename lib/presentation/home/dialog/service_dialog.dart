@@ -15,7 +15,7 @@ class ServiceDialog extends StatelessWidget {
           const Text(
             'LAYANAN',
             style: TextStyle(
-              color: AppColors.primary,
+              color: AppColors.orangeLight,
               fontSize: 28,
               fontWeight: FontWeight.w600,
             ),
@@ -26,7 +26,7 @@ class ServiceDialog extends StatelessWidget {
               onPressed: () => context.pop(),
               icon: const Icon(
                 Icons.cancel,
-                color: AppColors.primary,
+                color: AppColors.orangeLight,
                 size: 30.0,
               ),
             ),
@@ -41,7 +41,7 @@ class ServiceDialog extends StatelessWidget {
             title: const Text('Presentase (5%)'),
             subtitle: const Text('Biaya layanan'),
             contentPadding: EdgeInsets.zero,
-            textColor: AppColors.primary,
+            textColor: AppColors.orangeLight,
             trailing: Checkbox(
               value: true,
               onChanged: (value) {},
